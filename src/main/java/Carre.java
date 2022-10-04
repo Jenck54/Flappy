@@ -4,8 +4,13 @@ public abstract class Carre extends Sprite {
 
     protected int largeur;
 
-    public Carre(int x, int y, Color couleur, int largeur) {
+    public Carre(int x, int y, int largeur, Color couleur) {
         super(x, y, couleur);
+        this.largeur = largeur;
+    }
+
+    public Carre(int x, int y, int largeur) {
+        super(x, y);
         this.largeur = largeur;
     }
 
