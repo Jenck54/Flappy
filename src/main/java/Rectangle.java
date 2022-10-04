@@ -14,6 +14,11 @@ public abstract class Rectangle extends Carre {
         this.hauteur = hauteur;
     }
 
+    @Override
+    public int getCentreX() {
+        return hauteur / 2;
+    }
+
     public int getHauteur() {
         return hauteur;
     }

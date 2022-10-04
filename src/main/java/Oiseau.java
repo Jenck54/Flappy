@@ -2,15 +2,28 @@ import java.awt.*;
 
 public class Oiseau extends Carre {
 
-    protected int vitesseVertical;
+    protected float vitesseVertical;
+
+    protected final static int HAUTEUR_OISEAU = 40;
 
     @Override
     public void dessiner(Graphics2D dessin) {
+        dessin.setColor(couleur);
+        dessin.fillRect(x,y,largeur,largeur);
+    }
 
+    public void deplacement() {
+        y -= vitesseVertical;
+        vitesseVertical -= 0.05f;
     }
 
     public Oiseau(int x, int y) {
-        super(x, y, 40);
+        super(x, y, HAUTEUR_OISEAU);
+        this.vitesseVertical = 0;
+    }
+
+    public Oiseau(int hauteurEcran) {
+        super(50, hauteurEcran / 2 - HAUTEUR_OISEAU / 2, HAUTEUR_OISEAU);
         this.vitesseVertical = 0;
     }
 
@@ -18,11 +31,11 @@ public class Oiseau extends Carre {
 
     }
 
-    public int getVitesseVertical() {
+    public float getVitesseVertical() {
         return vitesseVertical;
     }
 
-    public void setVitesseVertical(int vitesseVertical) {
+    public void setVitesseVertical(float vitesseVertical) {
         this.vitesseVertical = vitesseVertical;
     }
 }

@@ -14,6 +14,16 @@ public abstract class Carre extends Sprite {
         this.largeur = largeur;
     }
 
+    @Override
+    public int getCentreX() {
+        return largeur / 2;
+    }
+
+    @Override
+    public int getCentreY() {
+        return largeur / 2;
+    }
+
     public int getLargeur() {
         return largeur;
     }

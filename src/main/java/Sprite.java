@@ -10,6 +10,10 @@ public abstract class Sprite {
 
     public abstract void dessiner(Graphics2D dessin);
 
+    public abstract int getCentreX();
+
+    public abstract int getCentreY();
+
     public Sprite(int x, int y, Color couleur) {
         this.x = x;
         this.y = y;
