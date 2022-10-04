@@ -2,13 +2,19 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 
 public class Flappy extends Canvas implements KeyListener {
 
     protected int largeurEcran = 500;
     protected int hauteurEcran = 700;
-
+    protected boolean pause = false;
     protected Oiseau oiseau;
+    protected Tuyau tuyau;
+    protected ArrayList<Deplacable> listeDeplacable = new ArrayList<>();
+    protected ArrayList<Sprite> listeSprite = new ArrayList<>();
+
+
     public Flappy() throws InterruptedException {
         JFrame fenetre = new JFrame("Flappy");
         //On récupère le panneau de la fenetre principale
@@ -37,12 +43,31 @@ public class Flappy extends Canvas implements KeyListener {
         demarrer();
     }
 
+    public void initialiser() {
+
+        if (oiseau == null) {
+            oiseau = new Oiseau(hauteurEcran);
+//            oiseau.setVitesseVertical(-1);
+            pause = false;
+
+            tuyau = new Tuyau(200, hauteurEcran, largeurEcran);
+
+            listeDeplacable.add(tuyau);
+            listeDeplacable.add(oiseau);
+
+            listeSprite.add(tuyau);
+            listeSprite.add(oiseau);
+        } else {
+            oiseau.reinitialiser(hauteurEcran);
+            tuyau.reinitialiser(largeurEcran);
+        }
+    }
+
     public void demarrer() throws InterruptedException {
 
         long indexFrame = 0;
+        initialiser();
 
-        oiseau = new Oiseau(hauteurEcran);
-        oiseau.setVitesseVertical(-1);
 
 
         while(true) {
@@ -54,14 +79,27 @@ public class Flappy extends Canvas implements KeyListener {
             dessin.setColor(Color.WHITE);
             dessin.fillRect(0,0,largeurEcran,hauteurEcran);
 
-            oiseau.dessiner(dessin);
-
-            if(oiseau.getY() > hauteurEcran - oiseau.getLargeur()) {
-                System.out.println("Perdu");
-            } else {
-                oiseau.deplacement();
+            for (Sprite sprite : listeSprite) {
+                sprite.dessiner(dessin);
             }
 
+
+            if(!pause) {
+
+                if (oiseau.getY() > hauteurEcran - oiseau.getLargeur()) {
+                    System.out.println("Perdu");
+                    pause = true;
+                } else {
+//                    oiseau.deplacer();
+//                    tuyau.deplacer();
+                    for(Deplacable deplacable : listeDeplacable) {
+                        deplacable.deplacer();
+                    }
+                }
+            } else {
+                dessin.setColor(new Color(0,0,0,0.1f));
+                dessin.fillRect(0,0,largeurEcran,hauteurEcran);
+            }
             //-----------------------------
             dessin.dispose();
             getBufferStrategy().show();
@@ -86,8 +124,15 @@ public class Flappy extends Canvas implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            System.out.println("JUMP !");
+            oiseau.setVitesseVertical(2);
         }
 
+        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+            initialiser();
+        }
+
+        if (e.getKeyCode() == KeyEvent.VK_P) {
+            pause = !pause;
+        }
     }
 }
