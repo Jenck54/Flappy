@@ -101,7 +101,7 @@ public class Flappy extends Canvas implements KeyListener {
                         deplacable.deplacer(largeurEcran, hauteurEcran);
                     }
 
-                    if (Sprite.testCollision(oiseau, tuyau) {
+                    if (Sprite.testCollision(oiseau, tuyau)) {
                         System.out.println("Perdu");
                         pause = true;
                     }
