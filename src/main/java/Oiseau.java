@@ -12,7 +12,7 @@ public class Oiseau extends Carre implements Deplacable{
         dessin.fillRect(x,y,largeur,largeur);
     }
     @Override
-    public void deplacer() {
+    public void deplacer(int largeurEcran, int hauteurEcran) {
         if (vitesseVertical % 10 != 0 && vitesseVertical < 0) {
             y -= vitesseVertical -0.5f;
         } else {
@@ -32,7 +32,7 @@ public class Oiseau extends Carre implements Deplacable{
 
     public Oiseau(int hauteurEcran) {
         super(50, 0, HAUTEUR_OISEAU);
-        reinitialiser(hauteurEcran);
+        reinitialiser(0, hauteurEcran);
         this.vitesseVertical = 0;
     }
 
@@ -40,7 +40,7 @@ public class Oiseau extends Carre implements Deplacable{
 //        return hauteurEcran / 2 - HAUTEUR_OISEAU / 2;
 //    }
 
-    public void reinitialiser (int hauteurEcran) {
+    public void reinitialiser (int largeurEcran, int hauteurEcran) {
         y = hauteurEcran / 2 - HAUTEUR_OISEAU / 2;
         vitesseVertical = 0;
     }

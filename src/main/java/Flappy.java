@@ -45,11 +45,10 @@ public class Flappy extends Canvas implements KeyListener {
 
     public void initialiser() {
 
+        pause = false;
+
         if (oiseau == null) {
             oiseau = new Oiseau(hauteurEcran);
-//            oiseau.setVitesseVertical(-1);
-            pause = false;
-
             tuyau = new Tuyau(200, hauteurEcran, largeurEcran);
 
             listeDeplacable.add(tuyau);
@@ -57,9 +56,18 @@ public class Flappy extends Canvas implements KeyListener {
 
             listeSprite.add(tuyau);
             listeSprite.add(oiseau);
+
+            for (int i = 0; i < 50; i ++) {
+                Nuage nuage = new Nuage(largeurEcran, hauteurEcran);
+                listeDeplacable.add(nuage);
+                listeSprite.add(nuage);
+
+            }
+
         } else {
-            oiseau.reinitialiser(hauteurEcran);
-            tuyau.reinitialiser(largeurEcran);
+            for (Deplacable deplacable : listeDeplacable) {
+                deplacable.reinitialiser(largeurEcran, hauteurEcran);
+            }
         }
     }
 
@@ -67,8 +75,6 @@ public class Flappy extends Canvas implements KeyListener {
 
         long indexFrame = 0;
         initialiser();
-
-
 
         while(true) {
             indexFrame ++;
@@ -83,7 +89,6 @@ public class Flappy extends Canvas implements KeyListener {
                 sprite.dessiner(dessin);
             }
 
-
             if(!pause) {
 
                 if (oiseau.getY() > hauteurEcran - oiseau.getLargeur()) {
@@ -93,7 +98,7 @@ public class Flappy extends Canvas implements KeyListener {
 //                    oiseau.deplacer();
 //                    tuyau.deplacer();
                     for(Deplacable deplacable : listeDeplacable) {
-                        deplacable.deplacer();
+                        deplacable.deplacer(largeurEcran, hauteurEcran);
                     }
                 }
             } else {
