@@ -8,7 +8,14 @@ public abstract class Sprite {
 
     protected Color couleur;
 
+    public static boolean testCollision(Sprite sprite1, Sprite sprite2) {
+        return sprite1.collision(sprite2) || sprite2.collision(sprite1);
+    }
     public abstract void dessiner(Graphics2D dessin);
+
+    public abstract boolean collision(int x, int y);
+
+    public abstract boolean collision(Sprite sprite);
 
     public abstract int getCentreX();
 

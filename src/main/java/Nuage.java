@@ -19,6 +19,7 @@ public class Nuage extends Rectangle implements Deplacable {
         x--;
         if (x < -largeur) {
             reinitialiser(largeurEcran, hauteurEcran);
+            x += largeurEcran;
         }
     }
 

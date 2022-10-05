@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="41057a4a-334d-4658-8b4f-50a60d267268" name="Changes" comment="Ajout deplacement tuyau">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Nuage.java" afterDir="false" />
+    <list default="true" id="41057a4a-334d-4658-8b4f-50a60d267268" name="Changes" comment="Ajout beaucoup de nuage">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Deplacable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Deplacable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Carre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Carre.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Flappy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Flappy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Nuage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Nuage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Oiseau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Oiseau.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Tuyau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tuyau.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Rectangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Sprite.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +96,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664895305507</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Ajout beaucoup de nuage">
+      <created>1664960277243</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1664960277243</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -114,6 +122,7 @@
     <MESSAGE value="Ajout constructeur" />
     <MESSAGE value="Ajout gravité" />
     <MESSAGE value="Ajout deplacement tuyau" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajout deplacement tuyau" />
+    <MESSAGE value="Ajout beaucoup de nuage" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout beaucoup de nuage" />
   </component>
 </project>

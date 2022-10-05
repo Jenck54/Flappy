@@ -15,6 +15,34 @@ public abstract class Carre extends Sprite {
     }
 
     @Override
+    public boolean collision(int x, int y) {
+        return x >= this.x
+                && x <= this.x + largeur
+                && y >= this.y
+                && y <= this.y + largeur;
+    }
+
+    @Override
+    public boolean collision(Sprite sprite) {
+
+        if (sprite instanceof Rectangle) {
+            Rectangle Rectangle = (Rectangle) sprite;
+
+        return this.collision(Rectangle.getX(), Rectangle.getY())
+                || this.collision(Rectangle.getX() + Rectangle.getLargeur(), Rectangle.getY())
+                || this.collision(Rectangle.getX(), Rectangle.getHauteur() + Rectangle.getY())
+                || this.collision(Rectangle.getX() + Rectangle.getLargeur(), Rectangle.getY() + Rectangle.getHauteur());
+        } else if (sprite instanceof Carre) {
+            Carre carre = (Carre)sprite;
+             return this.collision(carre.getX(), carre.getY())
+                    || this.collision(carre.getX() + carre.getLargeur(), carre.getY())
+                    || this.collision(carre.getX(), carre.getLargeur() + carre.getY())
+                    || this.collision(carre.getX() + carre.getLargeur(), carre.getY() + carre.getLargeur());
+        }
+        return false;
+    }
+
+    @Override
     public int getCentreX() {
         return largeur / 2;
     }
